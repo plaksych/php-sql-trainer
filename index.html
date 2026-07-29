@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Симулятор подготовки к тесту HH (Git, PHP, Docker)</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>WebDev Prep</span>
+            </div>
+            <nav class="nav-tabs">
+                <button class="tab-btn active" data-tab="dashboard">
+                    <i class="fas fa-chart-pie"></i> Дашборд
+                </button>
+                <button class="tab-btn" data-tab="flashcards">
+                    <i class="fas fa-clone"></i> Карточки
+                </button>
+                <button class="tab-btn" data-tab="cheatsheets">
+                    <i class="fas fa-book"></i> Шпаргалки
+                </button>
+                <button class="tab-btn" data-tab="practice">
+                    <i class="fas fa-laptop-code"></i> Практика PHP
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. DASHBOARD VIEW -->
+        <section id="dashboard-view" class="view-section active">
+            <div style="margin-bottom: 2rem; text-align: center;">
+                <h1 style="font-size: 2.5rem; font-family: 'Outfit', sans-serif; font-weight: 800; margin-bottom: 0.5rem; background: linear-gradient(135deg, #06b6d4, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    Тренажер подготовки к тестированию
+                </h1>
+                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.05rem;">
+                    Интерактивные тесты, карточки терминов, шпаргалки по консольным командам и реальный редактор кода для отработки практического PHP перед экзаменом.
+                </p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Git Card -->
+                <div class="dash-card git-card" id="start-git-quiz">
+                    <div class="card-header">
+                        <div class="card-icon git-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <span class="progress-pill">0%</span>
+                    </div>
+                    <h2 class="card-title">Git — Базовый</h2>
+                    <p class="card-desc">Теория контроля версий: коммиты, ветки, слияния, отмена изменений, stash, revert и конфликты.</p>
+                    <div class="card-footer">
+                        <span>12 Вопросов</span>
+                        <button class="card-action-btn">
+                            Начать тест <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PHP Theory Card -->
+                <div class="dash-card php-card theory-card" id="start-php-theory-quiz">
+                    <div class="card-header">
+                        <div class="card-icon php-icon">
+                            <i class="fab fa-php"></i>
+                        </div>
+                        <span class="progress-pill">0%</span>
+                    </div>
+                    <h2 class="card-title">PHP — Теория</h2>
+                    <p class="card-desc">Базовые типы, массивы, функции, область видимости, ООП (интерфейсы, наследование) и strict_types.</p>
+                    <div class="card-footer">
+                        <span>12 Вопросов</span>
+                        <button class="card-action-btn">
+                            Начать тест <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PHP Practice Card -->
+                <div class="dash-card php-card practice-card" id="start-php-practice">
+                    <div class="card-header">
+                        <div class="card-icon php-icon" style="background: rgba(139, 92, 246, 0.1); color: var(--accent-purple);">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <span class="progress-pill">0%</span>
+                    </div>
+                    <h2 class="card-title">PHP — Практика</h2>
+                    <p class="card-desc">Напишите код функций для фильтрации массивов, работы с ФИО, расчета среднего балла и классов ООП.</p>
+                    <div class="card-footer">
+                        <span>5 Задач</span>
+                        <button class="card-action-btn">
+                            Кодить <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Docker Card -->
+                <div class="dash-card docker-card" id="start-docker-quiz">
+                    <div class="card-header">
+                        <div class="card-icon docker-icon">
+                            <i class="fab fa-docker"></i>
+                        </div>
+                        <span class="progress-pill">0%</span>
+                    </div>
+                    <h2 class="card-title">Docker — Базовый</h2>
+                    <p class="card-desc">Контейнеризация: Dockerfile инструкции, Docker Compose, Volumes, связка контейнеров и порты.</p>
+                    <div class="card-footer">
+                        <span>12 Вопросов</span>
+                        <button class="card-action-btn">
+                            Начать тест <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommendations / Block Note -->
+            <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.5rem; text-align: left; display: flex; gap: 1rem; align-items: flex-start; max-width: 800px; margin: 0 auto;">
+                <i class="fas fa-info-circle" style="color: var(--accent-cyan); font-size: 1.5rem; margin-top: 0.1rem;"></i>
+                <div>
+                    <h4 style="font-weight: 700; margin-bottom: 0.25rem;">С чего начать подготовку?</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">
+                        Если вы чувствуете неуверенность по PHP или Docker, перейдите в раздел <b>Карточки</b> и проверьте свои знания основных понятий. Повторите консольные команды в разделе <b>Шпаргалки</b>, а затем попробуйте решить задачи в разделе <b>Практика PHP</b> и пройти тесты.
+                    </p>
+                    <p style="font-size: 0.85rem; color: var(--accent-purple); font-weight: 600;">
+                        Все ваши результаты автоматически сохраняются в браузере!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. QUIZ VIEW -->
+        <section id="quiz-view" class="view-section">
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <div>
+                        <button class="quiz-btn secondary" id="quiz-exit-btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                            <i class="fas fa-arrow-left"></i> В дашборд
+                        </button>
+                        <h2 class="quiz-title" id="quiz-topic-title">Git — Базовый</h2>
+                    </div>
+                    <span id="quiz-counter-text" style="font-weight: 600; color: var(--text-secondary); font-size: 0.9rem;">Вопрос 1 из 12</span>
+                </div>
+
+                <div class="quiz-progress-bar">
+                    <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+                </div>
+
+                <!-- Active Area -->
+                <div id="quiz-active-area">
+                    <div class="question-text" id="quiz-question-text">
+                        Как переименовать локальную ветку в Git?
+                    </div>
+
+                    <!-- Code snippet (optional) -->
+                    <div id="quiz-code-container" style="display: none;"></div>
+
+                    <!-- Answers options -->
+                    <div class="options-list" id="quiz-options-container">
+                        <!-- Option buttons will be generated by app.js -->
+                    </div>
+
+                    <!-- Explanations block -->
+                    <div class="explanation-box" id="quiz-explanation" style="display: none;">
+                        <!-- Generated by app.js -->
+                    </div>
+
+                    <!-- Quiz control footer -->
+                    <div class="quiz-footer">
+                        <div></div>
+                        <button class="quiz-btn" id="quiz-next-btn" disabled>
+                            Следующий вопрос <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Score screen -->
+                <div id="quiz-score-screen" class="score-screen" style="display: none;">
+                    <div class="score-circle">
+                        <span class="score-num" id="quiz-score-num">10</span>
+                        <span class="score-total" id="quiz-score-total">/ 12</span>
+                    </div>
+                    <h3 class="score-message" id="quiz-score-msg">Отличный результат!</h3>
+                    <p class="score-details" id="quiz-score-details">Вы правильно ответили на 10 из 12 вопросов.</p>
+                    
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                        <button class="quiz-btn secondary" onclick="switchTab('dashboard')">
+                            В меню
+                        </button>
+                        <button class="quiz-btn" id="quiz-restart-btn">
+                            <i class="fas fa-redo"></i> Пройти еще раз
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PRACTICE VIEW -->
+        <section id="practice-view" class="view-section">
+            <div class="practice-grid">
+                <!-- Sidebar -->
+                <div class="problems-sidebar">
+                    <h3 class="problems-title">Задачи по PHP</h3>
+                    <div class="problem-list" id="problem-list">
+                        <!-- Problems loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Editor Workspace -->
+                <div class="workspace-container">
+                    <!-- Task Description -->
+                    <div class="problem-desc-card">
+                        <h2 id="problem-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            Фильтрация чисел
+                        </h2>
+                        <div id="problem-description-text" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;">
+                            Описание задачи будет загружено сюда...
+                        </div>
+                    </div>
+
+                    <!-- Code Editor Box -->
+                    <div class="editor-card">
+                        <div class="editor-header">
+                            <div>
+                                <i class="fab fa-php" style="color: #777bb4; margin-right: 0.25rem;"></i>
+                                <span>solution.php</span>
+                            </div>
+                            <span style="font-size: 0.75rem;">Редактор кода (поддерживает табуляцию)</span>
+                        </div>
+                        <div class="editor-wrapper">
+                            <div class="line-numbers" id="practice-line-numbers">
+                                1<br>2<br>3<br>4<br>5
+                            </div>
+                            <textarea class="code-textarea" id="practice-editor" spellcheck="false" autocomplete="off" placeholder="Введите ваш PHP код здесь..."></textarea>
+                        </div>
+                        <div class="editor-footer">
+                            <button class="quiz-btn secondary" id="reset-code-btn" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                                <i class="fas fa-sync-alt"></i> Сбросить код
+                            </button>
+                            <button class="quiz-btn" id="run-code-btn" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; background: var(--accent-cyan); box-shadow: 0 4px 12px var(--accent-cyan-glow);">
+                                <i class="fas fa-play"></i> Запустить тесты
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tests Output Container -->
+                    <div class="test-results-card">
+                        <h4 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem;">
+                            Результаты тестов:
+                        </h4>
+                        <div id="test-results-list">
+                            <!-- Test outputs rendered dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FLASHCARDS VIEW -->
+        <section id="flashcards-view" class="view-section">
+            <div class="cards-container">
+                <div style="text-align: center;">
+                    <h2 style="font-size: 1.75rem; font-family: 'Outfit', sans-serif; font-weight: 700; margin-bottom: 0.25rem;">
+                        Флеш-карточки
+                    </h2>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        Нажмите на карточку, чтобы перевернуть ее и увидеть ответ.
+                    </p>
+                </div>
+
+                <div class="flashcard-wrapper" id="flashcard-container">
+                    <div class="flashcard" id="flashcard">
+                        <!-- Front Face -->
+                        <div class="card-face front">
+                            <span class="card-topic-tag" id="card-topic">Git</span>
+                            <div class="card-question" id="card-question-text">
+                                В чем разница между git reset и git revert?
+                            </div>
+                            <div class="card-hint">
+                                <i class="fas fa-mouse-pointer"></i> Кликните, чтобы увидеть ответ
+                            </div>
+                        </div>
+                        <!-- Back Face -->
+                        <div class="card-face back">
+                            <span class="card-topic-tag" style="color: var(--accent-purple);">Ответ</span>
+                            <div class="card-answer" id="card-answer-text">
+                                git reset переносит указатель ветки назад...
+                            </div>
+                            <div class="card-hint">
+                                <i class="fas fa-redo-alt"></i> Кликните, чтобы повернуть обратно
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="card-navigation">
+                    <button class="nav-btn" id="card-prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span class="card-counter" id="card-counter">1 / 12</span>
+                    <button class="nav-btn" id="card-next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CHEATSHEETS VIEW -->
+        <section id="cheatsheets-view" class="view-section">
+            <div class="cheatsheet-header">
+                <div>
+                    <h2 style="font-size: 1.75rem; font-family: 'Outfit', sans-serif; font-weight: 700; margin-bottom: 0.25rem;">
+                        Шпаргалки
+                    </h2>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        Полезные наборы команд и синтаксис для Git, Docker и PHP с возможностью быстрого поиска.
+                    </p>
+                </div>
+                <div class="search-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="cheatsheet-search" placeholder="Поиск команд...">
+                </div>
+            </div>
+
+            <div class="cheatsheet-grid" id="cheatsheet-grid">
+                <!-- Cheatsheets loaded dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <footer style="margin-top: 4rem; padding: 2rem; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.85rem; color: var(--text-secondary);">
+        <p>&copy; 2026 WebDev Prep Simulator. Все права защищены. Разработано для успешной сдачи экзаменов.</p>
+    </footer>
+
+    <!-- Core App JS -->
+    <script src="app.js"></script>
+</body>
+</html>
